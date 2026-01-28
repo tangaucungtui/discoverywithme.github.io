@@ -1,11 +1,81 @@
-        document.getElementById('continue-btn').onclick = function() {
-            document.getElementById('main-frame').src = pendingUrl;
-            document.getElementById('ads-page').style.display = 'none';
-        };
 
-        function goToPage(pageKey) {
-            document.getElementById('main-frame').src = urls[pageKey];
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chào mừng bạn đến với nhà của tui!</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: center;
         }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 { font-size: 24px; margin-bottom: 20px; }
+        p { font-size: 16px; line-height: 1.5; margin-bottom: 30px; opacity: 0.9; }
+        .highlight { color: #f6ad55; font-weight: bold; font-size: 20px; }
+        
+        #start-btn {
+            background: #48bb78;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+            display: inline-block;
+        }
+        #start-btn:hover {
+            background: #38a169;
+            transform: scale(1.05);
+        }
+        #start-btn:active { transform: scale(0.95); }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🏠 Chào mừng bạn đến với nhà của tui nha!</h1>
+        <p>Bấm vào nút bên dưới để nhận <br> 
+           <span class="highlight">1024 GB DUNG LƯỢNG</span> <br>
+           lưu trữ tài liệu quan trọng, miễn phí vĩnh viễn.
+        </p>
+
+        <button id="start-btn">🎁 NHẬN MIỄN PHÍ NGAY</button>
+    </div>
+
+    <script>
+        document.getElementById('start-btn').onclick = function() {
+            // Khi người dùng bấm nút:
+            // 1. Script quảng cáo (đã dán ở trên) sẽ tự động mở tab Pop-under ngầm.
+            
+            // 2. Tab hiện tại chuyển hướng sang Google Sites sau 300ms để đảm bảo Ads kịp chạy
+            setTimeout(function() {
+                window.location.href = "URL_TRANG_GOOGLE_SITES_CỦA_BẠN";
+            }, 300);
+        };
     </script>
+
 </body>
 </html>
