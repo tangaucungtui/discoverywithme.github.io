@@ -1,39 +1,3 @@
-        <a onclick="showAds('music')">Music Reflections</a>
-        <a onclick="showAds('bag')">What's In The Bag</a>
-        <a onclick="showAds('tech')">Tech Lifestyle</a>
-        <a onclick="showAds('income')">Income Hub</a>
-    </nav>
-
-    <iframe id="main-frame" src="LINK_TRANG_CHU_GOOGLE_SITES"></iframe>
-
-    <div id="ads-page">
-        <h2>🎁 Đợi chút! Quà tặng cho bạn...</h2>
-        <p>Nhận 1024 GB dung lượng trước khi xem nội dung này</p>
-        
-        <script async="async" src="..."></script>
-        <div id="container-..."></div>
-
-        <button id="continue-btn" style="margin-top:20px; padding:15px 30px; border-radius:30px; border:none; background:#48bb78; color:white; font-weight:bold; cursor:pointer;">
-            TIẾP TỤC ĐẾN TRANG NỘI DUNG
-        </button>
-    </div>
-
-    <script>
-        const urls = {
-            'home': 'LINK_TRANG_CHU_GOOGLE_SITES',
-            'music': 'LINK_TRANG_MUSIC_REFLECTIONS',
-            'bag': 'LINK_TRANG_WHATS_IN_THE_BAG',
-            'tech': 'LINK_TRANG_TECH_LIFESTYLE',
-            'income': 'LINK_TRANG_INCOME_HUB'
-        };
-
-        let pendingUrl = '';
-
-        function showAds(pageKey) {
-            pendingUrl = urls[pageKey];
-            document.getElementById('ads-page').style.display = 'flex';
-        }
-
         document.getElementById('continue-btn').onclick = function() {
             document.getElementById('main-frame').src = pendingUrl;
             document.getElementById('ads-page').style.display = 'none';
