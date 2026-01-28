@@ -1,39 +1,3 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tặng Gấu Cùng Tui</title>
-    <style>
-        body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; overflow: hidden; }
-        
-        /* Menu điều hướng */
-        .custom-menu {
-            background: #333;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .custom-menu a { color: white; text-decoration: none; font-weight: bold; font-size: 14px; cursor: pointer; }
-        .custom-menu a:hover { color: #ff9900; }
-
-        iframe { width: 100%; height: calc(100% - 40px); border: none; }
-
-        /* Trang đệm quảng cáo ẩn sẵn */
-        #ads-page {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: none; flex-direction: column;
-            justify-content: center; align-items: center;
-            z-index: 10000; color: white; text-align: center;
-        }
-    </style>
-</head>
-<body>
-
-    <nav class="custom-menu">
-        <a onclick="goToPage('home')">Home</a>
         <a onclick="showAds('music')">Music Reflections</a>
         <a onclick="showAds('bag')">What's In The Bag</a>
         <a onclick="showAds('tech')">Tech Lifestyle</a>
