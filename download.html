@@ -9,52 +9,62 @@
         // CỖ MÁY TỰ ĐỘNG NHẬN DIỆN LINK BÀI NHẠC
         const urlParams = new URLSearchParams(window.location.search);
         let musicLink = urlParams.get('id'); 
-        
-        // Nếu khách vào link bậy bạ, tự đẩy về trang chủ Google Sites của ông
-        if (!musicLink) { 
-            musicLink = "https://sites.google.com/view/tangaucungtui"; 
-        }
+        if (!musicLink) { musicLink = "https://sites.google.com/view/tangaucungtui"; }
 
+        // LINK QUẢNG CÁO TRỰC TIẾP (DIRECT LINK)
         const ADS_DIRECT = "https://www.effectivegatecpm.com/v4huzy068?key=d0119603befa4a39f5f4a88cbc7ad840";
     </script>
 
     <style>
         body { 
             margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; 
-            min-height: 100vh; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; text-align: center;
+            min-height: 100vh; background: #0f172a; 
+            font-family: 'Inter', sans-serif; color: white; text-align: center; overflow: hidden;
+        }
+        /* LỚP PHỦ QUẢNG CÁO TOÀN MÀN HÌNH */
+        #ads-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 9999; background: transparent; cursor: pointer;
         }
         .container { 
-            background: rgba(255, 255, 255, 0.1); padding: 40px 20px; border-radius: 30px; 
-            backdrop-filter: blur(15px); width: 90%; max-width: 400px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.05); padding: 40px 25px; border-radius: 30px; 
+            backdrop-filter: blur(20px); width: 90%; max-width: 400px; 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
+            position: relative; z-index: 1;
         }
-        .btn-paypal { background: #ffc439; color: #003087; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin: 15px 0; }
-        .btn-download { background: #2ecc71; color: white; border: none; padding: 20px 0; width: 100%; font-size: 18px; font-weight: bold; border-radius: 50px; cursor: pointer; margin-top: 20px; box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4); }
-        .ads-box { margin: 20px 0; min-height: 250px; background: rgba(0,0,0,0.1); border-radius: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .btn-paypal { background: #ffc439; color: #003087; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin: 15px 0; transition: 0.3s; }
+        .btn-download { background: #2ecc71; color: white; border: none; padding: 20px 0; width: 100%; font-size: 18px; font-weight: bold; border-radius: 50px; cursor: pointer; margin-top: 20px; box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3); }
+        .ads-banner { margin: 20px 0; min-height: 250px; background: rgba(255,255,255,0.03); border-radius: 15px; display: flex; align-items: center; justify-content: center; }
     </style>
 </head>
 <body>
 
+    <div id="ads-overlay" onclick="firstClickAds()"></div>
+
     <div class="container">
-        <h2 style="margin-bottom: 5px;">Jack Wang Vault 🏠</h2>
-        <p style="font-size: 14px; opacity: 0.8;">Premium Quality • High-Speed Download</p>
+        <h2 style="margin: 0; color: #2ecc71;">Jack Wang Vault 🏠</h2>
+        <p style="font-size: 14px; opacity: 0.7;">Premium Quality • Verified Link</p>
 
-        <a href="https://paypal.me/YOUR_ID" target="_blank" class="btn-paypal">☕ Support Jack (PayPal)</a>
+        <a href="https://paypal.me/YOUR_ID" target="_blank" class="btn-paypal">☕ Support via PayPal</a>
 
-        <div class="ads-box">
+        <div class="ads-banner">
              <div id="container-15c0cdf511a57cf02c31f89f15bdf9d9"></div>
         </div>
 
-        <button onclick="startDownload()" class="btn-download">📥 DOWNLOAD NOW</button>
-        <p style="font-size: 10px; margin-top: 15px; opacity: 0.6;">Secure link generated for your session.</p>
+        <button onclick="finalDownload()" class="btn-download">📥 DOWNLOAD NOW</button>
+        <p style="font-size: 10px; margin-top: 15px; opacity: 0.5;">Secure encryption enabled.</p>
     </div>
 
     <script>
-        function startDownload() {
-            // Mở quảng cáo ở tab mới
+        // Lần bấm đầu tiên vào bất cứ đâu
+        function firstClickAds() {
             window.open(ADS_DIRECT, '_blank');
-            // Đẩy khách về link Terabox của đúng bài đó ở tab hiện tại
+            document.getElementById('ads-overlay').style.display = 'none'; // Bấm xong thì biến mất để khách thao tác nút bên dưới
+        }
+
+        // Bấm vào nút Download lần nữa
+        function finalDownload() {
+            window.open(ADS_DIRECT, '_blank'); // Nổ thêm cái nữa cho chắc ăn
             setTimeout(() => {
                 window.location.href = musicLink;
             }, 500);
