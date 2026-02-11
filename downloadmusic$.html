@@ -1,45 +1,51 @@
-<div class="content">
-    <div class="ads-box">
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Wang | Support & Gift</title>
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+    <style>
+        body { font-family: sans-serif; background: #0f172a; display: flex; justify-content: center; padding: 20px; }
+        .card { background: white; width: 100%; max-width: 400px; border-radius: 20px; overflow: hidden; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .header { background: #1e293b; color: white; padding: 20px; }
+        .content { padding: 20px; }
+        .price { font-size: 40px; font-weight: bold; color: #0070ba; margin: 10px 0; }
+        
+        /* Quảng cáo Adsterra - Dán code của ông vào giữa thẻ div này */
+        .ads { min-height: 90px; background: #f1f5f9; margin-bottom: 20px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #94a3b8; }
 
-    <div id="payment-area">
-        <p style="margin:0; font-size: 14px; color: #475569; font-weight: bold;">Support Jack Wang's Music</p>
-        <p style="font-size: 12px; color: #64748b; margin-bottom: 10px;">Donate $2 to help me create more tracks!</p>
-        <div class="price">$2.00</div>
+        #payment-area { border: 2px solid #0070ba; border-radius: 15px; padding: 15px; }
+        #unlock-area { display: none; background: #dcfce7; border: 2px solid #22c55e; border-radius: 15px; padding: 15px; animation: slideDown 0.5s ease; }
         
-        <div id="paypal-button-container"></div>
-        
-        <div class="waiting-msg">
-            ❤️ After donation, the password will be revealed as a "Thank You" gift!
-        </div>
+        .pass-box { font-size: 24px; color: #15803d; background: white; padding: 10px; border: 2px dashed #22c55e; display: block; margin: 10px 0; border-radius: 10px; }
+        .btn-dl { display: block; background: #22c55e; color: white; text-decoration: none; padding: 15px; border-radius: 10px; font-weight: bold; }
+        .waiting { color: #ef4444; font-size: 11px; font-weight: bold; margin-top: 10px; }
+
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="header">
+        <h2 style="margin:0">JW1368 MUSIC</h2>
+        <small>Support My Passion</small>
     </div>
 
-    <div id="unlock-area">
-        <p style="margin:0; font-weight: 800; color: #166534; font-size: 18px;">❤️ THANK YOU FOR YOUR SUPPORT!</p>
-        <p style="font-size: 13px; color: #15803d; margin: 10px 0;">As a gift, here is your access code:</p>
-        <strong class="pass-code">JACKWANG2026</strong>
-        <a href="LINK_TERABOX_CUA_NIN" target="_blank" class="btn-download">📥 ACCESS VAULT NOW</a>
-        <p style="font-size: 10px; color: #16a34a; margin-top: 15px;">Your support helps me keep making music. Thank you!</p>
-    </div>
-</div>
+    <div class="content">
+        <div class="ads">
+            <script async="async" data-cfasync="false" src="https://pl28656257.effectivegatecpm.com/442052dd5360102cf8626b2c3d145b85/invoke.js"></script>
+            <div id="container-442052dd5360102cf8626b2c3d145b85"></div>
+        </div>
 
-<script>
-    paypal.Buttons({
-        // Khi tạo đơn hàng, PayPal sẽ hiểu đây là ủng hộ
-        createOrder: function(data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    description: "Donation for JW1368 Music Passion", // Mô tả này rất quan trọng để lách bản quyền
-                    amount: { value: '2.00' }
-                }]
-            });
-        },
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-                document.getElementById('payment-area').style.display = 'none';
-                document.getElementById('unlock-area').style.display = 'block';
-                alert('Thank you for your donation, ' + details.payer.name.given_name + '!');
-            });
-        }
-    }).render('#paypal-button-container');
-</script>
+        <div id="payment-area">
+            <p style="margin:0; font-size: 14px;">Donate $2 to get Password</p>
+            <div class="price">$2.00</div>
+            <div id="paypal-button-container"></div>
+            <div class="waiting">⚠️ DON'T CLOSE PAGE AFTER PAID!</div>
+        </div>
+
+        <div id="unlock-area">
+            <h3 style="margin:0; color:#166534">❤️ THANK YOU!</h3>
+            <p style="font-size:12px
