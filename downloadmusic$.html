@@ -10,7 +10,7 @@
         body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
         .container { width: 90%; max-width: 420px; background: var(--card-bg); border-radius: 28px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
         .header { background: #1e293b; color: white; padding: 35px 20px; text-align: center; }
-        .header h1 { margin: 0; font-size: 22px; letter-spacing: 1px; }
+        .header h1 { margin: 0; font-size: 20px; letter-spacing: 1px; }
         .content { padding: 30px; text-align: center; }
         
         /* Quảng cáo Adsterra */
@@ -53,7 +53,7 @@
             <div id="paypal-button-container"></div>
             
             <div class="waiting-msg">
-                ⚠️ IMPORTANT: Do not close or refresh this page after payment. Your password will appear here!
+                ⚠️ DO NOT CLOSE THIS PAGE. <br> Password will appear here after payment.
             </div>
         </div>
 
@@ -61,7 +61,8 @@
             <p style="margin:0; font-weight: 800; color: #166534; font-size: 18px;">✅ PAYMENT VERIFIED</p>
             <p style="font-size: 13px; color: #15803d; margin: 10px 0;">Your password for Terabox is:</p>
             <strong class="pass-code">JACKWANG2026</strong>
-            <a href="LINK_TERABOX_CUA_NIN" target="_blank" class="btn-download">📥 DOWNLOAD NOW</a>
+            <a href="LINK_TERABOX_CUA_NIN" target="_blank" class="btn-download">📥 DOWNLOAD FROM TERABOX</a>
+            <p style="font-size: 11px; color: #16a34a; margin-top: 15px;">Please copy the password before closing.</p>
         </div>
     </div>
 </div>
@@ -75,16 +76,14 @@
         },
         onApprove: function(data, actions) {
             return actions.order.capture().then(function(details) {
-                // Tắt khu vực trả tiền
+                // TỰ ĐỘNG CHUYỂN GIAO DIỆN KHI XONG
                 document.getElementById('payment-area').style.display = 'none';
-                // Hiện khu vực mật khẩu
                 document.getElementById('unlock-area').style.display = 'block';
-                // Thông báo thêm cho khách
                 alert('Success! Your password is now visible on the screen.');
             });
         },
         onError: function (err) {
-            alert('Payment failed. Please try again or use a different card.');
+            alert('Payment failed. Please try again.');
         }
     }).render('#paypal-button-container');
 </script>
