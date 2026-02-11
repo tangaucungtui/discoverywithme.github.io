@@ -1,18 +1,19 @@
-<div id="unlock-container" style="background: #ffffff; border: 2px solid #0070ba; padding: 30px 20px; border-radius: 25px; max-width: 400px; margin: 30px auto; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); color: #333; font-family: sans-serif;">
+<div id="unlock-container" style="background: #1a365d; border: 2px solid #3182ce; padding: 30px 20px; border-radius: 25px; max-width: 400px; margin: 30px auto; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.4); color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     
     <div id="pay-zone">
         <div style="font-size: 50px; margin-bottom: 10px;">☕</div>
-        <h3 style="color: #003087; margin: 0; text-transform: uppercase; font-size: 22px;">Buy me a coffee?</h3>
-        <p style="font-size: 14px; color: #555; margin-bottom: 20px;">Support my work to get the Password & VIP Link</p>
+        <h3 style="color: #63b3ed; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Tặng mình ly cafe?</h3>
+        <p style="font-size: 14px; opacity: 0.9; margin-bottom: 20px;">Your gift unlocks the Password & VIP Link</p>
 
-        <div style="text-align: left; background: #f8f9fa; border: 1px solid #e9ecef; padding: 15px; border-radius: 12px; margin-bottom: 20px; font-size: 13px; line-height: 1.6; color: #444;">
-            <b style="color: #0070ba;">How to get it:</b><br>
-            1️⃣ Choose your coffee level ($1, $3, or $5).<br>
-            2️⃣ Complete payment on <b>PayPal</b>.<br>
-            3️⃣ Click <b>"Return to Merchant"</b> to see the Password.<br>
-            4️⃣ Use the password to unlock your download.
+        <div style="text-align: left; background: rgba(255,255,255,0.1); border-left: 4px solid #63b3ed; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 13px; line-height: 1.6;">
+            <b style="color: #63b3ed;">Các bước nhận mã:</b><br>
+            1️⃣ Chọn mức cafe bạn muốn tặng ($1, $3, hoặc $5).<br>
+            2️⃣ Hoàn tất gửi quà qua <b>PayPal</b>.<br>
+            3️⃣ Bấm <b>"Return to Merchant"</b> để quay lại lấy mã.<br>
+            4️⃣ Dùng mã để mở khóa link tải nhạc.
         </div>
 
+        <p style="font-size: 12px; margin-bottom: 10px; color: #cbd5e0;">Chọn mức cafe bạn muốn tặng:</p>
         <div style="display: flex; justify-content: space-around; margin-bottom: 25px;">
             <div onclick="setPrice(1)" class="p-btn active" id="p1">1 ☕</div>
             <div onclick="setPrice(3)" class="p-btn" id="p3">3 ☕</div>
@@ -22,37 +23,54 @@
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
             <input type="hidden" name="business" value="jackwang1368@gmail.com">
             <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="item_name" value="Voluntary Donation - Jack Wang Music">
+            <input type="hidden" name="item_name" value="Voluntary Gift - Jack Wang Music">
             <input type="hidden" name="amount" id="pp-amount" value="1.00">
             <input type="hidden" name="currency_code" value="USD">
             <input type="hidden" name="return" value="https://discoverywithme.github.io/?status=success">
 
             <button type="submit" onclick="window.open('https://www.effectivegatecpm.com/v4huzy068?key=d0119603befa4a39f5f4a88cbc7ad840', '_blank')" 
-                style="background: #0070ba; color: #fff; border: none; padding: 16px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; width: 100%; font-size: 17px; transition: 0.3s; box-shadow: 0 4px 12px rgba(0,112,186,0.3);">
-                DONATE $<span id="disp-amt">1</span> & GET PASS
+                style="background: #3182ce; color: #ffffff; border: none; padding: 16px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; width: 100%; font-size: 17px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                TẶNG $<span id="disp-amt">1</span> & NHẬN MÃ
             </button>
         </form>
 
-        <div style="font-size: 11px; color: #777; text-align: left; margin-top: 25px; border-top: 1px solid #eee; padding-top: 15px;">
-            <b>Disclaimer:</b> This donation is 100% voluntary. No refunds. The music is provided under CC BY license. I am not responsible for any issues once you have received the pass.<br><br>
-            <b>Cam kết:</b> Việc donate là hoàn toàn tự nguyện. Tui không chịu trách nhiệm cho bất cứ vấn đề phát sinh nào sau khi bạn nhận mã. Nhạc sử dụng giấy phép CC BY (ghi nguồn discoverywithme.github.io).<br><br>
+        <div style="font-size: 11px; color: #a0aec0; text-align: left; margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; line-height: 1.4;">
+            <b>Disclaimer:</b> This gift is 100% voluntary. No refunds. The music is under CC BY license. I am not responsible for issues once the code is displayed.<br><br>
+            <b>Cam kết:</b> Quà tặng hoàn toàn tự nguyện. Mình không liên quan hay chịu trách nhiệm cho bất cứ vấn đề gì sau khi bạn nhận mã. Nhạc dùng giấy phép CC BY (ghi nguồn discoverywithme.github.io).<br><br>
             <b>Contact:</b> jackwang1368@gmail.com
         </div>
     </div>
 
     <div id="pass-zone" style="display: none; padding: 10px;">
-        <div style="font-size: 50px;">🎉</div>
-        <h3 style="color: #28a745; margin-top: 10px;">Success!</h3>
-        <p style="font-size: 15px; color: #333;">Here is your instant password:</p>
-        <div style="font-size: 35px; color: #0070ba; font-weight: bold; background: #f0f7ff; padding: 20px; border-radius: 15px; border: 2px dashed #0070ba; letter-spacing: 5px; margin: 15px 0;">
+        <div style="font-size: 50px;">🎊</div>
+        <h3 style="color: #68d391; margin-top: 10px;">Cảm ơn bạn rất nhiều!</h3>
+        <p style="font-size: 15px;">Đây là mật khẩu của bạn:</p>
+        <div style="font-size: 35px; color: #63b3ed; font-weight: bold; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; border: 2px dashed #63b3ed; letter-spacing: 5px; margin: 15px 0;">
             ABCD
         </div>
-        <p style="font-size: 13px; color: #666;">Copy this code and paste it into the Terabox link.</p>
-        <button onclick="window.scrollTo(0, document.body.scrollHeight)" style="background: transparent; color: #28a745; border: 1px solid #28a745; padding: 10px 20px; border-radius: 10px; cursor: pointer; margin-top: 15px; font-weight: bold;">Go to Download 📥</button>
+        <p style="font-size: 13px; opacity: 0.8;">Hãy copy mã này và dán vào link Terabox.</p>
+        <button onclick="window.scrollTo(0, document.body.scrollHeight)" style="background: transparent; color: #68d391; border: 1px solid #68d391; padding: 10px 20px; border-radius: 10px; cursor: pointer; margin-top: 15px; font-weight: bold;">Đi đến link tải 📥</button>
     </div>
 </div>
 
 <style>
-    .p-btn { background: #eee; color: #333; padding: 12px; border-radius: 15px; cursor: pointer; width: 65px; transition: 0.3s; border: 2px solid transparent; font-weight: bold; }
-    .p-btn.active { background: #e7f3ff; border-color: #0070ba; color: #0070ba; }
-    .p-btn:
+    .p-btn { background: rgba(255,255,255,0.1); color: #fff; padding: 12px; border-radius: 15px; cursor: pointer; width: 65px; transition: 0.3s; border: 2px solid transparent; font-weight: bold; }
+    .p-btn.active { background: #3182ce; border-color: #63b3ed; }
+    .p-btn:hover { background: rgba(255,255,255,0.2); }
+</style>
+
+<script>
+    function setPrice(amt) {
+        document.getElementById('pp-amount').value = amt + ".00";
+        document.getElementById('disp-amt').innerText = amt;
+        document.querySelectorAll('.p-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('p' + amt).classList.add('active');
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('status') === 'success') {
+        document.getElementById('pay-zone').style.display = 'none';
+        document.getElementById('pass-zone').style.display = 'block';
+        document.getElementById('unlock-container').scrollIntoView();
+    }
+</script>
