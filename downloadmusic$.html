@@ -1,45 +1,86 @@
-<div id="unlock-container" style="background: #1a365d; border: 2px solid #3182ce; padding: 30px 20px; border-radius: 25px; max-width: 400px; margin: 30px auto; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.4); color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-    
-    <div id="pay-zone">
-        <div style="font-size: 50px; margin-bottom: 10px;">☕</div>
-        <h3 style="color: #63b3ed; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Treat me a coffee?</h3>
-        <p style="font-size: 14px; opacity: 0.9; margin-bottom: 20px;">Your gift unlocks the Password & VIP Link</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Wang Premium Access</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #1a365d; /* Navy Blue Background */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
 
-        <div style="text-align: left; background: rgba(255,255,255,0.1); border-left: 4px solid #63b3ed; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 13px; line-height: 1.6;">
-            <b style="color: #63b3ed;">How it works:</b><br>
-            1️⃣ Choose the amount of coffee ($1, $3, or $5).<br>
-            2️⃣ Complete your gift via <b>PayPal</b>.<br>
-            3️⃣ Click <b>"Return to Merchant"</b> to get the code.<br>
-            4️⃣ Use the password to unlock your download.
-        </div>
+        /* FULL MÀN HÌNH */
+        #unlock-container {
+            width: 100%;
+            min-height: 100vh;
+            background: #1a365d;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
 
-        <p style="font-size: 12px; margin-bottom: 10px; color: #cbd5e0;">Select your coffee level:</p>
-        <div style="display: flex; justify-content: space-around; margin-bottom: 25px;">
-            <div onclick="setPrice(1)" class="p-btn active" id="p1">1 ☕</div>
-            <div onclick="setPrice(3)" class="p-btn" id="p3">3 ☕</div>
-            <div onclick="setPrice(5)" class="p-btn" id="p5">5 ☕</div>
-        </div>
+        .content-wrapper {
+            max-width: 600px; /* Giữ nội dung chính ở giữa cho dễ đọc trên máy tính */
+            margin: 0 auto;
+        }
 
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="business" value="jackwang1368@gmail.com">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="item_name" value="Voluntary Gift - Jack Wang Music">
-            <input type="hidden" name="amount" id="pp-amount" value="1.00">
-            <input type="hidden" name="currency_code" value="USD">
-            <input type="hidden" name="return" value="https://discoverywithme.github.io/?status=success">
+        h3 {
+            color: #63b3ed;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 10px 0;
+        }
 
-            <button type="submit" onclick="window.open('https://www.effectivegatecpm.com/v4huzy068?key=d0119603befa4a39f5f4a88cbc7ad840', '_blank')" 
-                style="background: #3182ce; color: #ffffff; border: none; padding: 16px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; width: 100%; font-size: 17px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                GIFT $<span id="disp-amt">1</span> & GET CODE
-            </button>
-        </form>
+        .steps-box {
+            text-align: left;
+            background: rgba(255, 255, 255, 0.08);
+            border-left: 5px solid #63b3ed;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 30px 0;
+            font-size: 15px;
+            line-height: 1.8;
+        }
 
-        <div style="font-size: 11px; color: #a0aec0; text-align: left; margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; line-height: 1.4;">
-            <b>Disclaimer:</b> This gift is 100% voluntary. No refunds. The music is provided under CC BY license. I am not responsible for any issues once the code has been displayed.<br><br>
-            <b>Commitment:</b> I have no involvement in any issues after you receive the code. Music used is under CC BY license (Credit: discoverywithme.github.io).<br><br>
-            <b>Contact:</b> jackwang1368@gmail.com
-        </div>
-    </div>
+        .p-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            width: 80px;
+            transition: 0.3s;
+            border: 2px solid transparent;
+            font-weight: bold;
+            font-size: 18px;
+        }
 
-    <div id="pass-zone" style="display: none; padding: 10px;">
-        <div
+        .p-btn.active {
+            background: #3182ce;
+            border-color: #63b3ed;
+            transform: scale(1.1);
+        }
+
+        .p-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .main-button {
+            background: #3182ce;
+            color: #ffffff;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            font-size: 20px;
