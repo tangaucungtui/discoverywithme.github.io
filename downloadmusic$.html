@@ -3,81 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack Wang Vault | Premium Access</title>
+    <title>Jack Wang Vault | Automated Access</title>
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
     <style>
-        :root {
-            --primary: #0070ba;
-            --bg: #0f172a;
-            --card-bg: #ffffff;
-        }
-
-        body { 
-            font-family: 'Segoe UI', Tahoma, sans-serif; 
-            background-color: var(--bg); 
-            margin: 0; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            min-height: 100vh;
-        }
-
-        .container { 
-            width: 90%; 
-            max-width: 400px; 
-            background: var(--card-bg); 
-            border-radius: 24px; 
-            overflow: hidden; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .header { 
-            background: #1e293b; 
-            color: white; 
-            padding: 30px 20px; 
-            text-align: center; 
-        }
-
-        .header h1 { margin: 0; font-size: 20px; letter-spacing: 1px; }
-
-        .content { padding: 25px; text-align: center; }
-
-        /* Adsterra placeholder */
-        .ads-box {
-            margin-bottom: 20px;
-            min-height: 80px;
-            background: #f1f5f9;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .vip-card {
-            border: 2px solid var(--primary);
-            background: #f0f9ff;
-            border-radius: 18px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .price { font-size: 32px; font-weight: 800; color: var(--primary); margin: 10px 0; }
-
-        .btn-paypal {
-            display: block;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            padding: 16px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-
-        .btn-paypal:hover { background: #005ea6; transform: scale(1.02); }
-
-        .footer-link { margin-top: 15px; font-size: 13px; }
-        .footer-link a { color: #64748b; text-decoration: none; }
+        :root { --primary: #0070ba; --bg: #0f172a; --card-bg: #ffffff; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg); display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+        .container { width: 90%; max-width: 420px; background: var(--card-bg); border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .header { background: #1e293b; color: white; padding: 30px; text-align: center; }
+        .content { padding: 30px; text-align: center; }
+        .ads-box { margin-bottom: 20px; min-height: 90px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 16px; display: flex; align-items: center; justify-content: center; }
+        
+        /* Khu vực hiện mật khẩu sau khi trả tiền */
+        #password-display { display: none; background: #dcfce7; border: 2px solid #22c55e; padding: 20px; border-radius: 15px; margin-top: 20px; color: #166534; font-weight: bold; }
+        
+        .btn-download { display: inline-block; background: #22c55e; color: white; text-decoration: none; padding: 14px 25px; border-radius: 12px; font-weight: bold; margin-top: 15px; width: 100%; box-sizing: border-box; }
     </style>
 </head>
 <body>
@@ -85,7 +24,7 @@
 <div class="container">
     <div class="header">
         <h1>STOCK MUSIC JW1368</h1>
-        <p>Discovery With Me Global</p>
+        <p>Instant Password Delivery</p>
     </div>
 
     <div class="content">
@@ -94,24 +33,46 @@
             <div id="container-442052dd5360102cf8626b2c3d145b85"></div>
         </div>
 
-        <div class="vip-card">
-            <p style="margin:0; font-size: 14px; color: #475569;">Unlock Password for Premium Files</p>
-            <div class="price">$2.00</div>
-            
-            <a href="https://www.paypal.com/paypalme/ninnhanwang/2usd" target="_blank" class="btn-paypal">
-                Send $2.00 via PayPal
-            </a>
-            
-            <p style="font-size: 11px; color: #94a3b8; margin-top: 12px;">
-                *Please include your <b>Email</b> in the message so I can send the password.*
-            </p>
+        <div id="payment-section">
+            <p style="font-size: 14px; color: #475569; margin-bottom: 20px;">Unlock Secret Password for <b>$2.00</b></p>
+            <div id="paypal-button-container"></div>
         </div>
 
-        <div class="footer-link">
-            <a href="LINK_TERABOX_CUA_NIN">Already paid? Download from Terabox</a>
+        <div id="password-display">
+            🎉 SUCCESS! <br>
+            Your Password is: <span style="font-size: 20px; color: #15803d;">JACKWANG2026</span>
+            <hr style="border: 0.5px solid #bdf4d4; margin: 15px 0;">
+            <a href="LINK_TERABOX_CUA_NIN" target="_blank" class="btn-download">📥 GO TO DOWNLOAD</a>
         </div>
     </div>
 </div>
+
+<script>
+    paypal.Buttons({
+        // Thiết lập đơn hàng 2$
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: { value: '2.00' }
+                }]
+            });
+        },
+        // Khi thanh toán thành công
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                // 1. Ẩn phần thanh toán
+                document.getElementById('payment-section').style.display = 'none';
+                // 2. Hiện mật khẩu và nút tải
+                document.getElementById('password-display').style.display = 'block';
+                // 3. Thông báo cho khách
+                alert('Transaction completed by ' + details.payer.name.given_name + '! Scroll down to see your password.');
+            });
+        },
+        onError: function (err) {
+            alert('Something went wrong with the payment. Please try again.');
+        }
+    }).render('#paypal-button-container');
+</script>
 
 </body>
 </html>
