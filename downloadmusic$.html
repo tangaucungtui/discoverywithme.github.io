@@ -1,51 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack Wang | Support & Gift</title>
-    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
-    <style>
-        body { font-family: sans-serif; background: #0f172a; display: flex; justify-content: center; padding: 20px; }
-        .card { background: white; width: 100%; max-width: 400px; border-radius: 20px; overflow: hidden; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .header { background: #1e293b; color: white; padding: 20px; }
-        .content { padding: 20px; }
-        .price { font-size: 40px; font-weight: bold; color: #0070ba; margin: 10px 0; }
-        
-        /* Quảng cáo Adsterra - Dán code của ông vào giữa thẻ div này */
-        .ads { min-height: 90px; background: #f1f5f9; margin-bottom: 20px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #94a3b8; }
+<div id="unlock-container" style="background: rgba(255, 255, 255, 0.05); border: 2px solid #f1c40f; padding: 25px; border-radius: 25px; max-width: 350px; margin: 20px auto; text-align: center;">
+    
+    <div id="pay-zone">
+        <div style="font-size: 50px;">☕</div>
+        <h3 style="color: #f1c40f; margin: 10px 0;">Buy me a coffee to get Password</h3>
+        <p style="font-size: 12px; opacity: 0.7;">Password will appear automatically after payment.</p>
 
-        #payment-area { border: 2px solid #0070ba; border-radius: 15px; padding: 15px; }
-        #unlock-area { display: none; background: #dcfce7; border: 2px solid #22c55e; border-radius: 15px; padding: 15px; animation: slideDown 0.5s ease; }
-        
-        .pass-box { font-size: 24px; color: #15803d; background: white; padding: 10px; border: 2px dashed #22c55e; display: block; margin: 10px 0; border-radius: 10px; }
-        .btn-dl { display: block; background: #22c55e; color: white; text-decoration: none; padding: 15px; border-radius: 10px; font-weight: bold; }
-        .waiting { color: #ef4444; font-size: 11px; font-weight: bold; margin-top: 10px; }
+        <div style="display: flex; justify-content: space-around; margin: 15px 0;">
+            <div onclick="setPrice(1)" class="p-btn active" id="p1">1 ☕</div>
+            <div onclick="setPrice(3)" class="p-btn" id="p3">3 ☕</div>
+            <div onclick="setPrice(5)" class="p-btn" id="p5">5 ☕</div>
+        </div>
 
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
-</head>
-<body>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="business" value="jackwang1368@gmail.com">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="item_name" value="Support Jack Wang - Unlock Pass">
+            <input type="hidden" name="amount" id="pp-amount" value="1.00">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="return" value="https://discoverywithme.github.io/?status=success">
 
-<div class="card">
-    <div class="header">
-        <h2 style="margin:0">JW1368 MUSIC</h2>
-        <small>Support My Passion</small>
+            <button type="submit" onclick="window.open('https://www.effectivegatecpm.com/v4huzy068?key=d0119603befa4a39f5f4a88cbc7ad840', '_blank')" 
+                style="background: #f1c40f; color: #000; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; width: 100%;">
+                Donate $<span id="disp-amt">1</span> & Get Password
+            </button>
+        </form>
     </div>
 
-    <div class="content">
-        <div class="ads">
-            <script async="async" data-cfasync="false" src="https://pl28656257.effectivegatecpm.com/442052dd5360102cf8626b2c3d145b85/invoke.js"></script>
-            <div id="container-442052dd5360102cf8626b2c3d145b85"></div>
+    <div id="pass-zone" style="display: none;">
+        <div style="font-size: 40px;">✅</div>
+        <h3 style="color: #2ecc71;">Payment Successful!</h3>
+        <p>Your Password:</p>
+        <div style="font-size: 30px; color: #f1c40f; font-weight: bold; background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; border: 1px dashed #f1c40f;">
+            ABCD
         </div>
+        <p style="font-size: 11px; margin-top: 10px;">Thank you for your support!</p>
+    </div>
+</div>
 
-        <div id="payment-area">
-            <p style="margin:0; font-size: 14px;">Donate $2 to get Password</p>
-            <div class="price">$2.00</div>
-            <div id="paypal-button-container"></div>
-            <div class="waiting">⚠️ DON'T CLOSE PAGE AFTER PAID!</div>
-        </div>
+<style>
+    .p-btn { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 12px; cursor: pointer; width: 50px; transition: 0.3s; }
+    .p-btn.active { background: #f1c40f; color: #000; font-weight: bold; }
+</style>
 
-        <div id="unlock-area">
-            <h3 style="margin:0; color:#166534">❤️ THANK YOU!</h3>
-            <p style="font-size:12px
+<script>
+    function setPrice(amt) {
+        document.getElementById('pp-amount').value = amt + ".00";
+        document.getElementById('disp-amt').innerText = amt;
+        document.querySelectorAll('.p-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('p' + amt).classList.add('active');
+    }
+
+    // KIỂM TRA NẾU KHÁCH QUAY LẠI TỪ PAYPAL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('status') === 'success') {
+        document.getElementById('pay-zone').style.display = 'none';
+        document.getElementById('pass-zone').style.display = 'block';
+        // Cuộn xuống chỗ hiện pass cho khách thấy
+        document.getElementById('unlock-container').scrollIntoView();
+    }
+</script>
