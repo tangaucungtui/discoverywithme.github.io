@@ -1,30 +1,142 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack Wang Vault - Premium Music & Apps</title>
+    <title>Jack Wang Vault | Premium Access</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #0f172a; margin: 0; padding: 0; color: #333; }
-        .container { max-width: 500px; margin: 40px auto; background: white; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-        .header { background: #1e293b; color: white; padding: 40px 20px; text-align: center; }
-        .header h1 { margin: 0; font-size: 26px; letter-spacing: 1px; }
-        .header p { opacity: 0.7; font-size: 14px; margin-top: 5px; }
-        .content { padding: 25px; text-align: center; }
+        :root {
+            --primary-color: #0070ba; /* PayPal Blue */
+            --secondary-color: #1e293b;
+            --accent-color: #ef4444;
+            --bg-color: #0f172a;
+            --card-bg: #ffffff;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--bg-color); 
+            margin: 0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh;
+            color: #1e293b;
+        }
+
+        .container { 
+            width: 100%; 
+            max-width: 420px; 
+            background: var(--card-bg); 
+            border-radius: 28px; 
+            overflow: hidden; 
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            margin: 20px;
+        }
+
+        .header { 
+            background: var(--secondary-color); 
+            color: white; 
+            padding: 35px 20px; 
+            text-align: center; 
+        }
+
+        .header h1 { margin: 0; font-size: 22px; letter-spacing: 1.5px; font-weight: 800; }
+        .header p { margin: 8px 0 0; font-size: 13px; opacity: 0.7; }
+
+        .content { padding: 30px; text-align: center; }
+
+        /* Adsterra Zone */
+        .ads-wrapper {
+            margin-bottom: 25px;
+            min-height: 100px;
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* VIP Section */
+        .vip-box {
+            border: 2px solid var(--primary-color);
+            background: #f0f9ff;
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+        }
+
+        .price { font-size: 36px; font-weight: 800; color: var(--primary-color); margin: 10px 0; }
         
-        /* Box PayPal VIP */
-        .vip-card { border: 2px solid #0070ba; background: #f0faff; border-radius: 20px; padding: 25px; margin-bottom: 25px; position: relative; }
-        .vip-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #e74c3c; color: white; padding: 3px 15px; border-radius: 10px; font-size: 11px; font-weight: bold; }
-        .btn-paypal { background: #0070ba; color: white; border: none; padding: 18px 30px; border-radius: 50px; font-size: 18px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,112,186,0.4); }
-        .btn-paypal:hover { background: #005ea6; transform: translateY(-2px); }
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 25px;
+            font-size: 13px;
+            color: #64748b;
+            text-align: left;
+        }
 
-        /* Link Download Thường */
-        .free-download { margin-top: 20px; padding: 20px; border: 1px dashed #cbd5e1; border-radius: 15px; background: #f8fafc; }
-        .btn-free { color: #2563eb; text-decoration: none; font-weight: bold; font-size: 16px; display: block; margin-top: 10px; }
-        .btn-free:hover { text-decoration: underline; }
+        .features li { margin-bottom: 8px; display: flex; align-items: center; }
+        .features li::before { content: "✓"; color: #22c55e; font-weight: bold; margin-right: 10px; }
 
-        /* Ads Placeholders */
-        .ads-box { margin: 20px 0; min-height: 100px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .btn-pay {
+            display: block;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 14px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 15px -3px rgba(0, 112, 186, 0.3);
+        }
+
+        .btn-pay:hover {
+            background: #005ea6;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(0, 112, 186, 0.4);
+        }
+
+        /* Footer Links */
+        .footer-links {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+
+        .btn-secondary {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .btn-secondary:hover { color: var(--primary-color); }
+
+        .copyright {
+            padding: 20px;
+            font-size: 11px;
+            color: #64748b;
+            background: #f8fafc;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -32,50 +144,28 @@
 <div class="container">
     <div class="header">
         <h1>JACK WANG VAULT</h1>
-        <p>Premium Instrumental & Tech Resources</p>
+        <p>Discovery With Me • Premium Digital Goods</p>
     </div>
 
     <div class="content">
-        <div class="ads-box">
+        <div class="ads-wrapper">
             <script async="async" data-cfasync="false" src="https://pl28656257.effectivegatecpm.com/442052dd5360102cf8626b2c3d145b85/invoke.js"></script>
             <div id="container-442052dd5360102cf8626b2c3d145b85"></div>
         </div>
 
-        <div class="vip-card">
-            <div class="vip-tag">BEST VALUE</div>
-            <h3 style="color: #003087; margin-top: 5px; font-size: 20px;">🔓 Unlock Vault Password ($2)</h3>
-            <p style="font-size: 14px; color: #475569; line-height: 1.5;">Get instant password + High Quality Lossless Audio (WAV/FLAC) + Full Commercial License.</p>
-            
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-                <input type="hidden" name="business" value="ninnhanwang@gmail.com">
-                <input type="hidden" name="cmd" value="_xclick">
-                <input type="hidden" name="item_name" value="VIP Vault Access - Jack Wang">
-                <input type="hidden" name="amount" value="2.00">
-                <input type="hidden" name="currency_code" value="USD">
-                <input type="hidden" name="return" value="https://tangaucungtui.github.io/thanks.html">
-                
-                <button type="submit" class="btn-paypal">BUY NOW FOR $2.00</button>
-            </form>
-            <p style="font-size: 11px; margin-top: 15px; color: #64748b;">*Click <b>"Return to Merchant"</b> after payment to get your password.*</p>
-        </div>
+        <div class="vip-box">
+            <div class="badge">LIFETIME PASS</div>
+            <div class="price">$2.00</div>
+            <ul class="features">
+                <li>High-Fidelity Audio (Lossless)</li>
+                <li>Universal Decryption Password</li>
+                <li>Commercial Usage Rights</li>
+                <li>No Interruption Ads</li>
+            </ul>
 
-        <div class="free-download">
-            <p style="margin: 0; font-size: 14px; color: #64748b;">Already have the password?</p>
-            <a href="THAY_LINK_TERABOX_CUA_NIN_O_DAY" target="_blank" class="btn-free">
-                📥 Access Terabox Download
+            <a href="https://paypal.me/ninnhanwang/2usd" target="_blank" class="btn-pay">
+                Unlock Now with PayPal
             </a>
-        </div>
-
-        <div class="ads-box">
-            <p style="color: #94a3b8; font-size: 11px;">ADVERTISEMENT</p>
-        </div>
-    </div>
-
-    <div style="text-align: center; padding: 0 20px 30px 20px; font-size: 12px; color: #94a3b8; line-height: 1.6;">
-        © 2026 Jack Wang - Discovery With Me <br>
-        Trusted Quality • High Speed Storage
-    </div>
-</div>
-
-</body>
-</html>
+            
+            <p style="font-size: 10px; color: #94a3b8; margin-top: 15px; font-style: italic;">
+                *Note: Please include your
